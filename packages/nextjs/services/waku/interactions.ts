@@ -42,6 +42,6 @@ export async function createLike(node: LightNode, encoder: Encoder, params: Crea
     console.log("New like:", newLike);
 
     await node.lightPush.send(encoder, {
-        payload: Root.encode(newLike),
+        payload: Like.encode(newLike),
     });
 }
