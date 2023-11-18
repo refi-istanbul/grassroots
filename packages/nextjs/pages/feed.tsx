@@ -95,23 +95,7 @@ const Feed: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    const tempRoot = {
-      id: "1",
-      title: "New Root",
-      location: "Paris, France",
-      description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-      timestamp: Date.now(),
-      imageURL: "https://ipfs.io/ipfs/QmYsWYyQL2rTykTb8a9erJ6cSRRLqpC1sk3NE7n6SbgAaJ",
-      relatedPosts: [],
-      likes: 1,
-      dislikes: 0,
-    } as RootItem;
-
-    setRoots([tempRoot]);
-
     if(!wakuGlobalContext) return;
-
     (async () => {
       console.info("use effect query callback");
       await wakuGlobalContext?.node.store.queryWithOrderedCallback(
