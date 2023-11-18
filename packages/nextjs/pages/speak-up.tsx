@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { MetaHeader } from "~~/components/MetaHeader";
 
-const Home: NextPage = () => {
+const Speakup: NextPage = () => {
   return (
     <>
       <MetaHeader />
@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <div className="px-5">
           <h1 className="text-center mb-8">
             <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Grassroots</span>
+            <span className="block text-4xl font-bold">Grassroots Speak-up</span>
           </h1>
         </div>
 
@@ -21,4 +21,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Speakup;

@@ -12,17 +12,8 @@ export const Footer = () => {
           <div className="flex justify-center items-center gap-2 text-sm w-full">
             <div className="flex justify-center items-center gap-2">
               <p className="m-0 text-center">
-                Built with <HeartIcon className="inline-block h-4 w-4" /> at
+                Copyright© 2023 Grassroots, as part of EthGlobal Istanbul.
               </p>
-              <a
-                className="flex justify-center items-center gap-1"
-                href="https://buidlguidl.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {/* TODO: Insert logo potentially */}
-                <span className="link">BuidlGuidl</span>
-              </a>
             </div>
           </div>
         </ul>
