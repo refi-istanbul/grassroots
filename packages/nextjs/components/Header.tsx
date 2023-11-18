@@ -24,11 +24,7 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     label: "Speak-up",
     href: "/speak-up",
-  },
-  {
-    label: "NewPost",
-    href: "/newPost",
-  },
+  }
 ];
 
 export const HeaderMenuLinks = () => {

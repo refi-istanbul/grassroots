@@ -1,24 +1,46 @@
 import type { NextPage } from "next";
-import { MetaHeader } from "~~/components/MetaHeader";
+import {SpeakUpForm} from "~~/components/speak-up/speak.up.form";
+import {useEffect, useState} from "react";
+import {initWakuContext, WakuContext} from "~~/services/waku/context";
+import {Root} from "~~/services/waku/proto/root";
+import {createRoot} from "~~/services/waku/interactions";
 
-const Speakup: NextPage = () => {
+const SpeakUp: NextPage = () => {
+
+  const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
+
+  const submit = async (speakUpFormData: any) => {
+      console.log("SpeakUpFormData", speakUpFormData);
+      await createRoot(wakuGlobalContext!.node, wakuGlobalContext!.rootEncoderDecoder.encoder, speakUpFormData);
+  }
+
+    useEffect(() => {
+        (async () => {
+            const wakuGlobalContext: WakuContext = await initWakuContext({
+                onRootReceived: () => {},
+                onLikeReceived: () => {},
+            });
+            setWakuGlobalContext(wakuGlobalContext);
+            console.info("Speak up page waku instance instantiated !");
+        })();
+    }, []);
+
+    useEffect(() => {
+
+    }, [wakuGlobalContext]);
+
   return (
     <>
-      <MetaHeader />
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Grassroots Speak-up</span>
-          </h1>
+      <div className="grid grid-cols-2 gap-4 p-10">
+        <div className="flex py-6">
+          <SpeakUpForm onSubmit={submit} />
         </div>
-
-        <div className="flex-grow w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">Body</div>
-        </div>
+          <div className="flex py-6">
+              <h1>What's good</h1>
+          </div>
       </div>
     </>
   );
 };
 
-export default Speakup;
+export default SpeakUp;
