@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { NextIdSignin } from "./grassroots/NextIdSignin";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -24,7 +25,7 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     label: "Speak-up",
     href: "/speak-up",
-  }
+  },
 ];
 
 export const HeaderMenuLinks = () => {
@@ -98,6 +99,7 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
+        <NextIdSignin />
         <RainbowKitCustomConnectButton />
       </div>
     </div>

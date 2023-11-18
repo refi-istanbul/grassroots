@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useEffectOnce, useLocalStorage, useReadLocalStorage } from "usehooks-ts";
 import { Connector, useAccount, useConnect } from "wagmi";
 import scaffoldConfig from "~~/scaffold.config";
+import { useGlobalState } from "~~/services/store/store";
 
 const SCAFFOLD_WALLET_STROAGE_KEY = "scaffoldEth2.wallet";
 const WAGMI_WALLET_STORAGE_KEY = "wagmi.wallet";
@@ -43,11 +44,13 @@ export const useAutoConnect = (): void => {
   const [walletId, setWalletId] = useLocalStorage<string>(SCAFFOLD_WALLET_STROAGE_KEY, wagmiWalletValue ?? "");
   const connectState = useConnect();
   const accountState = useAccount();
+  const { setUserWallet } = useGlobalState();
 
   useEffect(() => {
     if (accountState.isConnected) {
       // user is connected, set walletName
       setWalletId(accountState.connector?.id ?? "");
+      setUserWallet(accountState.address || "");
     } else {
       // user has disconnected, reset walletName
       window.localStorage.setItem(WAGMI_WALLET_STORAGE_KEY, JSON.stringify(""));

@@ -64,9 +64,7 @@ export const RootComponent = ({ r, onLike, onDisLike, onSpeakUp }: RootComponent
           <div>Speak-up</div>
         </div>
       </div>
-      <div>
-          {r.relatedPosts.length != 0 && <div className="m-3"> Related post: {r.relatedPosts}</div>}
-      </div>
+      <div>{r.relatedPosts.length != 0 && <div className="m-3"> Related post: {r.relatedPosts}</div>}</div>
     </div>
   );
 };

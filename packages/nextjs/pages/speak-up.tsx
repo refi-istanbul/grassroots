@@ -1,38 +1,34 @@
-import type { NextPage } from "next";
-import {SpeakUpForm} from "~~/components/speak-up/speak.up.form";
-import {useEffect, useState} from "react";
-import {initWakuContext, WakuContext} from "~~/services/waku/context";
-import {Root} from "~~/services/waku/proto/root";
-import {createRoot} from "~~/services/waku/interactions";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import type { NextPage } from "next";
+import { SpeakUpForm } from "~~/components/speak-up/speak.up.form";
+import { WakuContext, initWakuContext } from "~~/services/waku/context";
+import { createRoot } from "~~/services/waku/interactions";
 
-const PLACEHOLDER_IMAGE= "https://www.shutterstock.com/image-vector/motivational-quote-speak-up-drawn-260nw-1927581692.jpg";
+const PLACEHOLDER_IMAGE =
+  "https://www.shutterstock.com/image-vector/motivational-quote-speak-up-drawn-260nw-1927581692.jpg";
 
 const SpeakUp: NextPage = () => {
-
   const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
 
-  const[sideImageURL, setImageURL] = useState<string>(PLACEHOLDER_IMAGE);
+  const [sideImageURL, setImageURL] = useState<string>(PLACEHOLDER_IMAGE);
 
   const submit = async (speakUpFormData: any) => {
-      console.log("SpeakUpFormData", speakUpFormData);
-      await createRoot(wakuGlobalContext!.node, wakuGlobalContext!.rootEncoderDecoder.encoder, speakUpFormData);
-  }
-
-  const updateImageURL = async(imageURLUpdated: string) => {
-      imageURLUpdated.length > 0 ? setImageURL(imageURLUpdated) : setImageURL(PLACEHOLDER_IMAGE);
+    console.log("SpeakUpFormData", speakUpFormData);
+    await createRoot(wakuGlobalContext!.node, wakuGlobalContext!.rootEncoderDecoder.encoder, speakUpFormData);
   };
 
-    useEffect(() => {
-        (async () => {
-            const wakuGlobalContext: WakuContext = await initWakuContext({
-                onRootReceived: () => {},
-                onLikeReceived: () => {},
-            });
-            setWakuGlobalContext(wakuGlobalContext);
-            console.info("Speak up page waku instance instantiated !");
-        })();
-    }, []);
+  const updateImageURL = async (imageURLUpdated: string) => {
+    imageURLUpdated.length > 0 ? setImageURL(imageURLUpdated) : setImageURL(PLACEHOLDER_IMAGE);
+  };
+
+  useEffect(() => {
+    (async () => {
+      const wakuGlobalContext: WakuContext = await initWakuContext({});
+      setWakuGlobalContext(wakuGlobalContext);
+      console.info("Speak up page waku instance instantiated !");
+    })();
+  }, []);
 
   return (
     <>
@@ -41,9 +37,9 @@ const SpeakUp: NextPage = () => {
           <SpeakUpForm onSubmit={submit} onImageURLChange={updateImageURL} />
         </div>
         <div className="flex py-4">
-            <div className="w-full flex flex-row items-center justify-center">
-                <Image src={sideImageURL} width={400} height={250} alt="image"/>
-            </div>
+          <div className="w-full flex flex-row items-center justify-center">
+            <Image src={sideImageURL} width={400} height={250} alt="image" />
+          </div>
         </div>
       </div>
     </>

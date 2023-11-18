@@ -95,7 +95,7 @@ const Feed: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    if(!wakuGlobalContext) return;
+    if (!wakuGlobalContext) return;
     (async () => {
       console.info("use effect query callback");
       await wakuGlobalContext?.node.store.queryWithOrderedCallback(
@@ -106,7 +106,6 @@ const Feed: NextPage = () => {
           onMessageReceived(wakuMessageDecoded as unknown as Partial<RootItem>);
         },
       );
-
     })();
   }, [wakuGlobalContext]);
 
