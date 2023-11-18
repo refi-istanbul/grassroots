@@ -65,9 +65,7 @@ export const RootComponent = ({ r, onLike, onDisLike, onSpeakUp }: RootComponent
         </div>
       </div>
       <div>
-        {r.relatedPosts?.map(related => (
-          <div key={related}>TODO: Related post: {related}</div>
-        ))}
+          <div> Related post: {r.relatedPosts}</div>
       </div>
     </div>
   );
