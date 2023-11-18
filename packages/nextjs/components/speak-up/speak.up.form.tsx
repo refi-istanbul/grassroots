@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Input} from "~~/components/misc/Input";
 import {TextArea} from "~~/components/misc/TextArea";
 import {Button} from "~~/components/misc/Button";
+import {initWakuContext, WakuContext} from "~~/services/waku/context";
 
 /**
  * Site footer
@@ -9,6 +10,7 @@ import {Button} from "~~/components/misc/Button";
 
 type SpeakUpFormProps = {
     onSubmit: any;
+    onImageURLChange: any;
 };
 
 
@@ -21,7 +23,7 @@ type SpeakUpFormDataType = {
     tag: string;
 }
 
-export const SpeakUpForm = ({ onSubmit }: SpeakUpFormProps) => {
+export const SpeakUpForm = ({ onSubmit, onImageURLChange }: SpeakUpFormProps) => {
 
     const [speakUpFormData, setSpeakUpFormData] = useState<SpeakUpFormDataType>({
         title: "",
@@ -36,7 +38,23 @@ export const SpeakUpForm = ({ onSubmit }: SpeakUpFormProps) => {
         return onSubmit(speakUpFormData);
     }
 
+    async function getAccount() {
+        if (typeof window.ethereum !== 'undefined') {
+            window.alert("Enable metamask!!!");
+            return;
+        }
 
+        const accounts = await window!.ethereum!.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+        console.info("account", account);
+    }
+
+
+    useEffect(() => {
+        // (async () => {
+        //     await getAccount();
+        // })();
+    }, []);
 
     // ------ Updates ----------
     const updateTitle = (newHeadTitle: string) => {
@@ -50,6 +68,7 @@ export const SpeakUpForm = ({ onSubmit }: SpeakUpFormProps) => {
     };
     const updateImageURL = (newValue: string) => {
         setSpeakUpFormData({ ...speakUpFormData, imageURL: newValue });
+        onImageURLChange(newValue);
     };
     const updateLocation = (newValue: string) => {
         setSpeakUpFormData({ ...speakUpFormData, location: newValue });

@@ -40,7 +40,6 @@ const Feed: NextPage = () => {
       [wakuGlobalContext!.likeEncoderDecoder.decoder],
       wakuMessage => {
         const wakuMessageDecoded = Like.decode(wakuMessage.payload);
-        console.info("like of post message", wakuMessageDecoded);
         if (wakuMessageDecoded.rootId == rootsTopicId) {
           if (likesOfPost[`${wakuMessageDecoded.userSignature}`]) {
             likesOfPost[`${wakuMessageDecoded.userSignature}`].push(wakuMessageDecoded);
@@ -52,6 +51,7 @@ const Feed: NextPage = () => {
     );
 
     Object.keys(likesOfPost).forEach(userIdentifier => {
+      console.info("userIdentifier", userIdentifier, likesOfPost[userIdentifier]);
       likesOfPost[userIdentifier].sort((x, y) => {
         return Number(y.timestamp) - Number(x.timestamp);
       });

@@ -19,7 +19,7 @@ export const RootComponent = ({ r, onLike, onDisLike, onSpeakUp }: RootComponent
   };
 
   return (
-    <div className="flex flex-col justify-center items-left text-neutral w-3/5 bg-neutral-content rounded-xl">
+    <div className="flex flex-col justify-center items-left text-neutral w-3/5 bg-neutral-content rounded-xl p-2">
       <div className="flex flex-col px-5 py-3">
         <div className="text-2xl font-bold">{r.title}</div>
         <div className="mb-[-10px]">
@@ -36,20 +36,20 @@ export const RootComponent = ({ r, onLike, onDisLike, onSpeakUp }: RootComponent
 
       <div className="flex flex-row justify-between items-center px-5 pt-2 pb-2 bg-[#efefef] rounded-b-xl">
         <div className="flex flex-row gap-1 items-center">
-          <div className="flex flex-col gap-1 justify-center items-center">
+          <div className="flex flex-row gap-1 justify-center items-center">
             <Image
               src="/Icons/uparrow.svg"
               alt=""
-              width={20}
-              height={20}
+              width={30}
+              height={30}
               className="cursor-pointer hover:transition hover:scale-125 duration-100"
               onClick={onLike}
             />
             <Image
               src="/Icons/downarrow.svg"
               alt=""
-              width={20}
-              height={20}
+              width={30}
+              height={30}
               className="cursor-pointer hover:transition hover:scale-125 duration-100"
               onClick={onDisLike}
             />
@@ -65,7 +65,7 @@ export const RootComponent = ({ r, onLike, onDisLike, onSpeakUp }: RootComponent
         </div>
       </div>
       <div>
-          <div> Related post: {r.relatedPosts}</div>
+          {r.relatedPosts.length != 0 && <div className="m-3"> Related post: {r.relatedPosts}</div>}
       </div>
     </div>
   );
