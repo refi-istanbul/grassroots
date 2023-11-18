@@ -8,12 +8,12 @@ export const fetchUser = async (platform: string, identity: string) => {
   return (await res.json()).ids;
 };
 
-export const createUser = async (platform: string, identity: string, publicKey: string) => {
+export const createUser = async (publicKey: string) => {
   const req = {
     action: "create",
-    platform,
-    identity,
-    publicKey,
+    platform: "twitter",
+    identity: "ironside_web3",
+    public_key: publicKey,
   };
 
   const res = await fetch(`${baseURL}/proof/payload`, {
@@ -28,4 +28,37 @@ export const createUser = async (platform: string, identity: string, publicKey: 
   console.log(res);
 
   return await res.json();
+};
+
+export const completeSignin = async (
+  publicKey: string,
+  tweetProof: string,
+  uuid: string,
+  createdAt: number,
+  signature: string,
+) => {
+  const req = {
+    action: "create",
+    platform: "twitter",
+    identity: "ironside_web3",
+    public_key: publicKey,
+    proof_location: String(tweetProof), // The link of Proof
+    extra: { signature },
+    uuid: uuid,
+    created_at: String(createdAt),
+  };
+
+  console.log("Complete signing payload");
+  console.log(req);
+
+  const res = await fetch(`${baseURL}/proof`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify(req),
+  });
+
+  console.log(res);
 };
