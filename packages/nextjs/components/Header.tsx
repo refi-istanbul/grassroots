@@ -65,7 +65,7 @@ export const Header = () => {
   );
 
   return (
-    <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
+    <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2 text-neutral">
       <div className="navbar-start w-auto lg:w-1/2">
         <div className="lg:hidden dropdown" ref={burgerMenuRef}>
           <label
@@ -90,10 +90,8 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-7 mr-6 shrink-0">
-          <div className="flex relative w-10 h-10">
-            <Image alt="logo" className="cursor-pointer" fill src="/logo.svg" />
-          </div>
-          <div className="flex flex-col font-bold leading-tight">Grassroots</div>
+          <Image alt="logo" className="cursor-pointer" width={30} height={30} src="/logo.svg" />
+          <div className="font-extrabold text-2xl leading-tight">Grassroots</div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-4 ml-8">
           <HeaderMenuLinks />
