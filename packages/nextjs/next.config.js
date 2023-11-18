@@ -13,6 +13,22 @@ const nextConfig = {
     config.resolve.fallback = { fs: false, net: false, tls: false };
     return config;
   },
+  images: {
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "ipfs.io",
+    //     port: "",
+    //     pathname: "/ipfs/**",
+    //   }
+    // ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

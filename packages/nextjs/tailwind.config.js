@@ -8,22 +8,23 @@ module.exports = {
     themes: [
       {
         scaffoldEth: {
-          primary: "#93BBFB",
-          "primary-content": "#212638",
-          secondary: "#DAE8FF",
-          "secondary-content": "#212638",
-          accent: "#93BBFB",
-          "accent-content": "#212638",
-          neutral: "#212638",
+          primary: "#84e887",
+          "primary-content": "#1f2a29",
+          secondary: "#aff5b1",
+          "secondary-content": "#1f2a29",
+          accent: "#ffa27a", // orange
+          "accent-content": "#1f2a29",
+          neutral: "#1f2a29",
           "neutral-content": "#ffffff",
           "base-100": "#ffffff",
-          "base-200": "#f4f8ff",
-          "base-300": "#DAE8FF",
-          "base-content": "#212638",
-          info: "#93BBFB",
-          success: "#34EEB6",
+          "base-200": "#1f2a27i",
+          "base-300": "#e7dcd2", // cream
+          "base-content": "#eaebe9", // light-gray
+          "base-content-dark": "#8a8a8a",
+          info: "#84e887",
+          success: "#42e347",
           warning: "#FFCF72",
-          error: "#FF8863",
+          error: "#df612a",
 
           "--rounded-btn": "9999rem",
 
@@ -38,39 +39,39 @@ module.exports = {
           },
         },
       },
-      {
-        scaffoldEthDark: {
-          primary: "#212638",
-          "primary-content": "#F9FBFF",
-          secondary: "#323f61",
-          "secondary-content": "#F9FBFF",
-          accent: "#4969A6",
-          "accent-content": "#F9FBFF",
-          neutral: "#F9FBFF",
-          "neutral-content": "#385183",
-          "base-100": "#385183",
-          "base-200": "#2A3655",
-          "base-300": "#212638",
-          "base-content": "#F9FBFF",
-          info: "#385183",
-          success: "#34EEB6",
-          warning: "#FFCF72",
-          error: "#FF8863",
+      // {
+      //   scaffoldEthDark: {
+      //     primary: "#212638",
+      //     "primary-content": "#F9FBFF",
+      //     secondary: "#323f61",
+      //     "secondary-content": "#F9FBFF",
+      //     accent: "#4969A6",
+      //     "accent-content": "#F9FBFF",
+      //     neutral: "#F9FBFF",
+      //     "neutral-content": "#385183",
+      //     "base-100": "#385183",
+      //     "base-200": "#2A3655",
+      //     "base-300": "#212638",
+      //     "base-content": "#F9FBFF",
+      //     info: "#385183",
+      //     success: "#34EEB6",
+      //     warning: "#FFCF72",
+      //     error: "#FF8863",
 
-          "--rounded-btn": "9999rem",
+      //     "--rounded-btn": "9999rem",
 
-          ".tooltip": {
-            "--tooltip-tail": "6px",
-            "--tooltip-color": "hsl(var(--p))",
-          },
-          ".link": {
-            textUnderlineOffset: "2px",
-          },
-          ".link:hover": {
-            opacity: "80%",
-          },
-        },
-      },
+      //     ".tooltip": {
+      //       "--tooltip-tail": "6px",
+      //       "--tooltip-color": "hsl(var(--p))",
+      //     },
+      //     ".link": {
+      //       textUnderlineOffset: "2px",
+      //     },
+      //     ".link:hover": {
+      //       opacity: "80%",
+      //     },
+      //   },
+      // },
     ],
   },
   theme: {

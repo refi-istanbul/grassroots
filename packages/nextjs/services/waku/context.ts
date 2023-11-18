@@ -13,8 +13,8 @@ export interface WakuContext {
 }
 
 export interface WakuContextParams {
-  onRootReceived: any;
-  onLikeReceived: any;
+  onRootReceived?: any;
+  onLikeReceived?: any;
 }
 
 export async function initWakuContext({ onRootReceived, onLikeReceived }: WakuContextParams): Promise<WakuContext> {
