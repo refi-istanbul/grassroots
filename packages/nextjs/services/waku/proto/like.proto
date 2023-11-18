@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Like {
+  bool isLike = 1;
+  uint64 timestamp = 2;
+  string rootId = 3;
+  string userSignature = 4; // instead of storing user wallet, have the signature of rootId made by a user stored, which keeps the user private
+}
