@@ -1,17 +1,30 @@
 import type { NextPage } from "next";
-import { MetaHeader } from "~~/components/MetaHeader";
+import { Input } from "~~/components/misc/Input";
 
-const Speakup: NextPage = () => {
+const NewPost: NextPage = () => {
   return (
     <>
-      <MetaHeader />
       <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Grassroots Speak-up</span>
-          </h1>
-        </div>
+        <h1 className="text-center mb-8">
+          <span className="block text-2xl mb-2"> News post </span>
+          <span className="block text-4xl font-bold"> </span>
+          <Input
+            full
+            content={"deal?.twitterHandle"}
+            setContent={"updateTwitterHandle"}
+            placeholder={"Paste the link here..."}
+            type={"string"}
+            label={"Twitter Account of the Creator"}
+            classes={{
+              width: "full",
+              padding: "2 px-4",
+              textColor: "neutral",
+              textSize: "md",
+              borderColor: "accent-focus",
+              hover: "transition hover:border-2 hover:border-accent-content duration-300",
+            }}
+          />
+        </h1>
 
         <div className="flex-grow w-full mt-16 px-8 py-12">
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">Body</div>
@@ -21,4 +34,4 @@ const Speakup: NextPage = () => {
   );
 };
 
-export default Speakup;
+export default NewPost;
