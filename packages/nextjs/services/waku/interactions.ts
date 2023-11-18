@@ -3,7 +3,6 @@ import { Like } from "./proto/like";
 import { Root } from "./proto/root";
 import { LightNode } from "@waku/interfaces";
 import { Encoder } from "@waku/sdk";
-import { randomUUID } from "crypto";
 
 export interface CreateRootParams {
   type: RootType;
@@ -19,7 +18,7 @@ export interface CreateLikeParams {
 
 export async function createRoot(node: LightNode, encoder: Encoder, params: CreateRootParams) {
   const newRoot = {
-    id: randomUUID(),
+    id: window.crypto.randomUUID(),
     timestamp: BigInt(Date.now()),
     ...params,
   } as Partial<Root>;
