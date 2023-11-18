@@ -31,11 +31,11 @@ const SpeakUp: NextPage = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 p-10">
-        <div className="flex py-6">
+      <div className="grid grid-cols-2 p-10 ml-5">
+        <div className="flex py-8">
           <SpeakUpForm onSubmit={submit} />
         </div>
-          <div className="flex py-6">
+          <div className="flex py-4">
               <h1>What's good</h1>
           </div>
       </div>

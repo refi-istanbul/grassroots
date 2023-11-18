@@ -8,6 +8,9 @@ export interface CreateRootParams {
   type: RootType;
   title: string;
   description: string;
+  tag: string;
+  imageURL: string;
+  relatedPosts: string;
 }
 
 export interface CreateLikeParams {
@@ -25,10 +28,13 @@ export async function createRoot(node: LightNode, encoder: Encoder, params: Crea
 
   // TODO: Remove after testing is done
   console.log("New root:", newRoot);
+  console.log("Encoded:", Root.encode(newRoot));
 
   await node.lightPush.send(encoder, {
     payload: Root.encode(newRoot),
   });
+
+  console.log("Sent now!!!!!!!!!!!!!!!!!!!!!");
 }
 
 export async function createLike(node: LightNode, encoder: Encoder, params: CreateLikeParams) {
