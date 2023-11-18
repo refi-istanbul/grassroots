@@ -1,5 +1,4 @@
 import React from "react";
-import { HeartIcon } from "@heroicons/react/24/outline";
 
 /**
  * Site footer
@@ -11,9 +10,7 @@ export const Footer = () => {
         <ul className="menu menu-horizontal w-full">
           <div className="flex justify-center items-center gap-2 text-sm w-full">
             <div className="flex justify-center items-center gap-2">
-              <p className="m-0 text-center">
-                Copyright© 2023 Grassroots, as part of EthGlobal Istanbul.
-              </p>
+              <p className="m-0 text-center">Copyright© 2023 Grassroots, as part of EthGlobal Istanbul.</p>
             </div>
           </div>
         </ul>
