@@ -8,7 +8,7 @@ import { notification } from "~~/utils/scaffold-eth";
 import {useSignMessage} from "wagmi";
 
 const PLACEHOLDER_IMAGE =
-  "https://www.shutterstock.com/image-vector/motivational-quote-speak-up-drawn-260nw-1927581692.jpg";
+  "https://i.ibb.co/Zgk3484/speakup.jpg";
 
 const SpeakUp: NextPage = () => {
   const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
