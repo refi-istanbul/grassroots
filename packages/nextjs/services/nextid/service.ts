@@ -8,11 +8,11 @@ export const fetchUser = async (platform: string, identity: string) => {
   return (await res.json()).ids;
 };
 
-export const createUser = async (publicKey: string) => {
+export const createUser = async (identity: string, publicKey: string) => {
   const req = {
     action: "create",
     platform: "twitter",
-    identity: "ironside_web3",
+    identity,
     public_key: publicKey,
   };
 
@@ -32,6 +32,7 @@ export const createUser = async (publicKey: string) => {
 
 export const completeSignin = async (
   publicKey: string,
+  identity: string,
   tweetProof: string,
   uuid: string,
   createdAt: number,
@@ -40,7 +41,7 @@ export const completeSignin = async (
   const req = {
     action: "create",
     platform: "twitter",
-    identity: "ironside_web3",
+    identity,
     public_key: publicKey,
     proof_location: String(tweetProof), // The link of Proof
     extra: { signature },
