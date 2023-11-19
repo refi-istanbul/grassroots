@@ -2,18 +2,26 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
 import { SpeakUpForm } from "~~/components/speak-up/speak.up.form";
+import { useGlobalState } from "~~/services/store/store";
 import { WakuContext, initWakuContext } from "~~/services/waku/context";
 import { createRoot } from "~~/services/waku/interactions";
+import { notification } from "~~/utils/scaffold-eth";
 
 const PLACEHOLDER_IMAGE =
   "https://www.shutterstock.com/image-vector/motivational-quote-speak-up-drawn-260nw-1927581692.jpg";
 
 const SpeakUp: NextPage = () => {
+  const { userWallet } = useGlobalState();
   const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
 
   const [sideImageURL, setImageURL] = useState<string>(PLACEHOLDER_IMAGE);
 
   const submit = async (speakUpFormData: any) => {
+    if (!userWallet) {
+      notification.error("Please sign in with your wallet.");
+      return;
+    }
+
     console.log("SpeakUpFormData", speakUpFormData);
     await createRoot(wakuGlobalContext!.node, wakuGlobalContext!.rootEncoderDecoder.encoder, speakUpFormData);
   };

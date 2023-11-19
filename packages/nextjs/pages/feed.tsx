@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { RootComponent } from "~~/components/grassroots/RootComponent";
+import { useGlobalState } from "~~/services/store/store";
 import { WakuContext, initWakuContext } from "~~/services/waku/context";
 import { createLike } from "~~/services/waku/interactions";
 import { Like } from "~~/services/waku/proto/like";
@@ -11,6 +12,7 @@ import { notification } from "~~/utils/scaffold-eth";
 const Feed: NextPage = () => {
   const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
   const [rootsList, setRoots] = useState<RootItem[]>([]);
+  const { userWallet } = useGlobalState();
 
   async function onMessageReceived(message: Partial<RootItem>) {
     console.info("onMessageReceived", message);
@@ -69,6 +71,11 @@ const Feed: NextPage = () => {
   }
 
   async function onLike(rootId: string) {
+    if (!userWallet) {
+      notification.error("Please sign in with your wallet.");
+      return;
+    }
+
     const rootLink = {
       isLike: true,
       rootId: rootId,
@@ -81,7 +88,10 @@ const Feed: NextPage = () => {
   }
 
   async function onDisLike(rootId: string) {
-    console.info("On-Dislike", rootId);
+    if (!userWallet) {
+      notification.error("Please sign in with your wallet.");
+      return;
+    }
 
     const rootLink = {
       isLike: false,
