@@ -19,6 +19,7 @@ export interface Root {
   description: string;
   imageURL: string;
   relatedPosts: string;
+  location: string;
 }
 
 export namespace Root {
@@ -67,6 +68,11 @@ export namespace Root {
             w.string(obj.relatedPosts);
           }
 
+          if (obj.location != null && obj.location !== "") {
+            w.uint32(66);
+            w.string(obj.location);
+          }
+
           if (opts.lengthDelimited !== false) {
             w.ldelim();
           }
@@ -80,6 +86,7 @@ export namespace Root {
             description: "",
             imageURL: "",
             relatedPosts: "",
+            location: "",
           };
 
           const end = length == null ? reader.len : reader.pos + length;
@@ -114,6 +121,10 @@ export namespace Root {
               }
               case 7: {
                 obj.relatedPosts = reader.string();
+                break;
+              }
+              case 8: {
+                obj.location = reader.string();
                 break;
               }
               default: {

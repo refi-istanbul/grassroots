@@ -7,7 +7,6 @@ import { Like } from "~~/services/waku/proto/like";
 import { Root } from "~~/services/waku/proto/root";
 import { RootItem } from "~~/types/grassroots/root";
 import { notification } from "~~/utils/scaffold-eth";
-import { toast } from 'react-toastify';
 
 const Feed: NextPage = () => {
   const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
@@ -19,7 +18,7 @@ const Feed: NextPage = () => {
 
     // check if it's duplicate message
     const checkDuplicate = rootsList.filter(root => root.id === message.id);
-    if(checkDuplicate[0]){
+    if (checkDuplicate[0]) {
       return await fetchLikeForATopic(checkDuplicate[0].id);
     }
 
@@ -77,7 +76,7 @@ const Feed: NextPage = () => {
     };
 
     await createLike(wakuGlobalContext!.node, wakuGlobalContext!.likeEncoderDecoder.encoder, rootLink);
-    toast("Done!");
+    notification.info("Done!");
     await updateLikeRecordOfNewsTopic(rootId);
   }
 
@@ -90,17 +89,16 @@ const Feed: NextPage = () => {
       userSignature: `userWallet-${rootId}`,
     };
     await createLike(wakuGlobalContext!.node, wakuGlobalContext!.likeEncoderDecoder.encoder, rootLink);
-    toast("Done!");
+    notification.info("Done!");
     await updateLikeRecordOfNewsTopic(rootId);
   }
-
 
   const updateLikeRecordOfNewsTopic = async (topicId: string) => {
     const recentStat = await fetchLikeForATopic(topicId);
 
-    const newRootsList = rootsList.map((root) => {
+    const newRootsList = rootsList.map(root => {
       if (root.id === topicId) {
-        return {...root, likes: recentStat.likes, disLikes: recentStat.dislikes};
+        return { ...root, likes: recentStat.likes, disLikes: recentStat.dislikes };
       }
       return root;
     });

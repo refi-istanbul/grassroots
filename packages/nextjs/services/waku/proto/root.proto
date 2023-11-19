@@ -8,4 +8,5 @@ message Root {
   string description = 5; // maybe bytes?
   string imageURL = 6;
   string relatedPosts = 7;
+  string location = 8;
 }
