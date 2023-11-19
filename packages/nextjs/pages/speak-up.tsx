@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import { SpeakUpForm } from "~~/components/speak-up/speak.up.form";
 import { WakuContext, initWakuContext } from "~~/services/waku/context";
 import { createRoot } from "~~/services/waku/interactions";
-import { toast } from 'react-toastify';
+import {notification} from "~~/utils/scaffold-eth";
 
 const PLACEHOLDER_IMAGE =
   "https://www.shutterstock.com/image-vector/motivational-quote-speak-up-drawn-260nw-1927581692.jpg";
@@ -17,7 +17,6 @@ const SpeakUp: NextPage = () => {
   const submit = async (speakUpFormData: any) => {
     console.log("SpeakUpFormData", speakUpFormData);
     await createRoot(wakuGlobalContext!.node, wakuGlobalContext!.rootEncoderDecoder.encoder, speakUpFormData);
-    toast("Recorded!");
   };
 
   const updateImageURL = async (imageURLUpdated: string) => {
