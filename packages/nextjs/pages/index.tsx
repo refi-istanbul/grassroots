@@ -37,9 +37,20 @@ const Home: NextPage = () => {
         </div>
 
         {/* Section 2 */}
-        <div className="flex flex-col w-full h-100vh bg-[#C6E8BE]">
-          <div className="flex flex-row w-2/3 justify-between items-center">
-            <div className=""></div>
+        <div className="flex flex-col w-full h-100vh bg-[#C6E8BE] py-36 items-center justify-center gap-16 rounded-b-[100px]">
+          <div className="flex flex-row w-4/5 justify-between items-center">
+            <div className="flex flex-col gap-10 w-2/5">
+              <div className="flex flex-col">
+                <div className="text-2xl">mint now</div>
+                <div className="text-4xl mt-0">Proof of Verification</div>
+              </div>
+              <div className="text-xl">
+                Refound's mission is part of the Regenerative Finance (ReFi) movement, specifically to leverage
+                blockchain to help journalists and photographers directly sell their content to the public and news
+                media at higher margins and with greater financial control, helping regenerate their economic cycle.
+              </div>
+            </div>
+            <Image src="/map.png" width={700} height={400} alt="" />
           </div>
           <div className="w-1/3 text-md">
             Our decentralized application provides journalists a platform to share their content, monetize it, and
