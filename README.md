@@ -1,4 +1,11 @@
+<html>
+<div style="background: white;">
+
 ![image](https://github.com/scaffold-eth/scaffold-eth-2/assets/19642322/67a13bdc-4dda-4b04-92d8-57bf2f88c6da)
+
+</div>
+</html>
+
 
 ## Inspiration
 
