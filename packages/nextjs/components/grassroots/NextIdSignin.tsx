@@ -95,11 +95,11 @@ export const NextIdSignin = () => {
     <>
       <button className="btn btn-primary btn-sm" onClick={onInitiateSignin}>
         {nextIdLogo("/nextid.svg", 25)}
-        <span>Next.ID initiate sign in</span>
+        <span>Initiate sign in</span>
       </button>
       <button className="btn btn-primary btn-sm" onClick={onCompleteSignin}>
         {nextIdLogo("/nextid.svg", 25)}
-        <span>Next.ID complete sign in</span>
+        <span>Complete sign in</span>
       </button>
       <input
         // hidden // TODO: Remove when you need it
