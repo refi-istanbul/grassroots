@@ -16,6 +16,12 @@ const SpeakUp: NextPage = () => {
 
   const submit = async (speakUpFormData: any) => {
     console.log("SpeakUpFormData", speakUpFormData);
+
+    if(!speakUpFormData.title || !speakUpFormData.description || !speakUpFormData.location || !speakUpFormData.imageURL){
+      notification.info("Please fill all the required fields");
+      return;
+    }
+
     await createRoot(wakuGlobalContext!.node, wakuGlobalContext!.rootEncoderDecoder.encoder, speakUpFormData);
   };
 
