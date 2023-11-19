@@ -14,7 +14,7 @@ const Home: NextPage = () => {
             style={{
               // use absolute position for the child element
               position: "absolute",
-              top: "48%",
+              top: "47%",
               left: "24%",
               transform: "translate(-50%, -50%)",
               // use higher zIndex than the image
@@ -22,14 +22,27 @@ const Home: NextPage = () => {
             }}
           >
             <div className="relative">
-              <Image src="/logowithtext.png" width={420} height={100} alt="" />
+              <Image src="/logo_glasses.svg" width={420} height={100} alt="" />
               <div className="flex flex-col items-end">
                 <p className="font-bold text-3xl">Speak up, gear up, clean up.</p>
                 <p className="font-light text-xl mt-[-7px]">
                   Autonomous web3 awareness platform for <br />
-                  incentivising change against climate crimes.
+                  incentivising reporting and solutions <br />
+                  for reckless climate conduct.
                 </p>
-                <button className="btn btn-primary mr-[5rem]">Speak up</button>
+                <div className="flex flex-row justify-between items-center w-2/3">
+                  <div className="flex flex-col translate-y-[-40px]">
+                    <Image className="translate-y-12" src="/nounsspeakerbush.svg" width={90} height={90} alt="" />
+                    <Image
+                      className="translate-y-[-10px] translate-x-4"
+                      src="/nouns-skull-loading.gif"
+                      width={55}
+                      height={55}
+                      alt=""
+                    />
+                  </div>
+                  <a className="btn btn-primary mr-[5rem]" href={"/speak-up"}>Speak up</a>
+                </div>
               </div>
             </div>
           </div>
@@ -41,20 +54,14 @@ const Home: NextPage = () => {
           <div className="flex flex-row w-4/5 justify-between items-center">
             <div className="flex flex-col gap-10 w-2/5">
               <div className="flex flex-col">
-                <div className="text-2xl">mint now</div>
-                <div className="text-4xl mt-0">Proof of Verification</div>
+                <div className="text-4xl mt-0">Our mission</div>
               </div>
               <div className="text-xl">
-                Refound's mission is part of the Regenerative Finance (ReFi) movement, specifically to leverage
-                blockchain to help journalists and photographers directly sell their content to the public and news
-                media at higher margins and with greater financial control, helping regenerate their economic cycle.
+                <p>Using Grassroots whistleblowers reporting concealed climate related risks can share their reports and case studies safely and anonymously. They can connect to their communities to share the personal and community impact of climate change and climate crimes and the community can participate in voting on and speaking up about the whistle blower claims.</p>
+                <p>As we build further, users will be able to raise funding for investigations and for relief in a solution oriented approach to mitigate these climate risks before they advance.</p>
               </div>
             </div>
             <Image src="/map.png" width={700} height={400} alt="" />
-          </div>
-          <div className="w-1/3 text-md">
-            Our decentralized application provides journalists a platform to share their content, monetize it, and
-            maintain anonymity and safety by using a wallet sign-in.
           </div>
         </div>
       </div>

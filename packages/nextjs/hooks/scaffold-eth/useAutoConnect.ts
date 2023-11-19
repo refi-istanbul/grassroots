@@ -55,6 +55,7 @@ export const useAutoConnect = (): void => {
       // user has disconnected, reset walletName
       window.localStorage.setItem(WAGMI_WALLET_STORAGE_KEY, JSON.stringify(""));
       setWalletId("");
+      setUserWallet("");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accountState.isConnected, accountState.connector?.name]);
