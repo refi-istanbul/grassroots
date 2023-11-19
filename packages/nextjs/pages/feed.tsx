@@ -77,7 +77,7 @@ const Feed: NextPage = () => {
     };
 
     await createLike(wakuGlobalContext!.node, wakuGlobalContext!.likeEncoderDecoder.encoder, rootLink);
-    toast("Done!");
+    notification.info("Done!");
     await updateLikeRecordOfNewsTopic(rootId);
   }
 
@@ -90,7 +90,7 @@ const Feed: NextPage = () => {
       userSignature: `userWallet-${rootId}`,
     };
     await createLike(wakuGlobalContext!.node, wakuGlobalContext!.likeEncoderDecoder.encoder, rootLink);
-    toast("Done!");
+    notification.info("Done!");
     await updateLikeRecordOfNewsTopic(rootId);
   }
 

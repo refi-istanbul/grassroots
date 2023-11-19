@@ -8,6 +8,7 @@ export interface CreateRootParams {
   type: RootType;
   title: string;
   description: string;
+  location: string;
   tag: string;
   imageURL: string;
   relatedPosts: string;
