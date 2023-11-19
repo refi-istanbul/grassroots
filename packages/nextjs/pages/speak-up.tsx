@@ -4,7 +4,6 @@ import type { NextPage } from "next";
 import { SpeakUpForm } from "~~/components/speak-up/speak.up.form";
 import { WakuContext, initWakuContext } from "~~/services/waku/context";
 import { createRoot } from "~~/services/waku/interactions";
-import {notification} from "~~/utils/scaffold-eth";
 
 const PLACEHOLDER_IMAGE =
   "https://www.shutterstock.com/image-vector/motivational-quote-speak-up-drawn-260nw-1927581692.jpg";

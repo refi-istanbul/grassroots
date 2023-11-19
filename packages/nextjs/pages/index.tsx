@@ -14,7 +14,7 @@ const Home: NextPage = () => {
             style={{
               // use absolute position for the child element
               position: "absolute",
-              top: "48%",
+              top: "47%",
               left: "24%",
               transform: "translate(-50%, -50%)",
               // use higher zIndex than the image
@@ -22,14 +22,26 @@ const Home: NextPage = () => {
             }}
           >
             <div className="relative">
-              <Image src="/logowithtext.png" width={420} height={100} alt="" />
+              <Image src="/logo_glasses.svg" width={420} height={100} alt="" />
               <div className="flex flex-col items-end">
                 <p className="font-bold text-3xl">Speak up, gear up, clean up.</p>
                 <p className="font-light text-xl mt-[-7px]">
                   Autonomous web3 awareness platform for <br />
                   incentivising change against climate crimes.
                 </p>
-                <button className="btn btn-primary mr-[5rem]">Speak up</button>
+                <div className="flex flex-row justify-between items-center w-2/3">
+                  <div className="flex flex-col translate-y-[-40px]">
+                    <Image className="translate-y-12" src="/nounsspeakerbush.svg" width={90} height={90} alt="" />
+                    <Image
+                      className="translate-y-[-10px] translate-x-4"
+                      src="/nouns-skull-loading.gif"
+                      width={55}
+                      height={55}
+                      alt=""
+                    />
+                  </div>
+                  <button className="btn btn-primary mr-[5rem]">Speak up</button>
+                </div>
               </div>
             </div>
           </div>

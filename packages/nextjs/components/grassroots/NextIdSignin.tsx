@@ -35,7 +35,8 @@ export const NextIdSignin = () => {
         setRecoveredPubKey(compressed);
 
         // createUser(recoveredPubKey.substring(2)).then(res => {
-        createUser(compressed).then(res => {
+        // Note: ideally, have this parametrized.
+        createUser("ironside_web3", compressed).then(res => {
           console.log(res);
           setUuid(res.uuid);
           setCreatedAt(res.created_at);
@@ -84,11 +85,14 @@ export const NextIdSignin = () => {
     );
     setSigningMessage(completingPopup);
 
-    completeSignin(recoveredPubKey, tweetID, uuid, createdAt, signMessageDataSecond as string).then(res => {
-      console.log(res);
-      notification.remove(signingMessage);
-      setSigningMessage("");
-    });
+    // Note: ideally, have this parametrized.
+    completeSignin("ironside_web3", recoveredPubKey, tweetID, uuid, createdAt, signMessageDataSecond as string).then(
+      res => {
+        console.log(res);
+        notification.remove(signingMessage);
+        setSigningMessage("");
+      },
+    );
   };
 
   return (

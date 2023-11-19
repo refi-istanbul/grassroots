@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { NextIdSignin } from "./grassroots/NextIdSignin";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -91,15 +90,15 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-7 mr-6 shrink-0">
-          <Image alt="logo" className="cursor-pointer" width={30} height={30} src="/logo.svg" />
-          <div className="font-extrabold text-2xl leading-tight">Grassroots</div>
+          {/* <Image alt="logo" className="cursor-pointer" width={30} height={30} src="/logo.svg" />
+          <div className="font-extrabold text-2xl leading-tight">Grassroots</div> */}
+          <Image alt="logo" className="cursor-pointer" width={250} height={80} src="/logo_glasses.svg" />
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-4 ml-8">
           <HeaderMenuLinks />
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
-        <NextIdSignin />
         <RainbowKitCustomConnectButton />
       </div>
     </div>
