@@ -27,7 +27,7 @@ const Home: NextPage = () => {
                 <p className="font-bold text-3xl">Speak up, gear up, clean up.</p>
                 <p className="font-light text-xl mt-[-7px]">
                   Autonomous web3 awareness platform for <br />
-                  incentivising change against climate crimes.
+                  incentivising reporting and solutions for reckless climate conduct.
                 </p>
                 <div className="flex flex-row justify-between items-center w-2/3">
                   <div className="flex flex-col translate-y-[-40px]">
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
                       alt=""
                     />
                   </div>
-                  <button className="btn btn-primary mr-[5rem]">Speak up</button>
+                  <a className="btn btn-primary mr-[5rem]" href={"/speak-up"}>Speak up</a>
                 </div>
               </div>
             </div>
