@@ -22,7 +22,7 @@ const Home: NextPage = () => {
             }}
           >
             <div className="relative">
-              <Image src="/logowithtext.png" width={420} height={100} alt="" />
+              <Image src="/logo_glasses.svg" width={420} height={100} alt="" />
               <div className="flex flex-col items-end">
                 <p className="font-bold text-3xl">Speak up, gear up, clean up.</p>
                 <p className="font-light text-xl mt-[-7px]">
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
                   incentivising change against climate crimes.
                 </p>
                 <div className="flex flex-row justify-between items-center w-2/3">
-                  <div className="flex flex-col translate-y-[-30px]">
+                  <div className="flex flex-col translate-y-[-40px]">
                     <Image className="translate-y-12" src="/nounsspeakerbush.svg" width={90} height={90} alt="" />
                     <Image
                       className="translate-y-[-10px] translate-x-4"
