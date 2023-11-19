@@ -1,9 +1,11 @@
-# Inspiration
+![image](https://github.com/scaffold-eth/scaffold-eth-2/assets/19642322/67a13bdc-4dda-4b04-92d8-57bf2f88c6da)
+
+## Inspiration
 
 Grassroots allows users to share information on climate accountability and crimes, create dialogue to speak-up about the impact and potential investigations, and allows communities to raise funds for relief.
 •	ETH Istanbul Demo: https://grassroot.vercel.app/
 
-### Problem
+## Problem
 
 We see several problems in the world related to concealed climate risks and reckless climate conduct:
 1. Difficult to Report Climate Risks and Crimes: Weak reporting of violations of climate regulations means perpetrators act with impunity.  Whistleblowers risk all to get their voice heard and are many times silenced.
@@ -17,7 +19,7 @@ We see several problems in the world related to concealed climate risks and reck
 
 
 
-### Target Users
+## Target Users
 
 *	Whistle blowers who want to report concealed climate risks.
 
@@ -58,7 +60,7 @@ We built it using Next.js + wagmi for the front end, Waku for peer-to-peer messa
 
 * Calling the Next.ID REST API (https://github.com/refi-istanbul/client-dapp/blob/ main/packages/nextjs/services/nextid/service.ts) In addition, coming to an agreement with liveliness of the local Waku node took a deeper investigation on how a local light node worked, but it was an exciting effort and we were glad to be able to build on it. After going through the examples and chatting to staff at Waku’s booth, we were able to fully adjust our code to work with the Waku local node.
 
-### What's next for Grassroots:
+## What's next for Grassroots:
 
 With the right funding the project could continue to build and do the following:
 
