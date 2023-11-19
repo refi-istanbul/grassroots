@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "~~/components/misc/Button";
 import { Input } from "~~/components/misc/Input";
 import { TextArea } from "~~/components/misc/TextArea";
+import { useGlobalState } from "~~/services/store/store";
+import { notification } from "~~/utils/scaffold-eth";
 
 /**
  * Site footer
@@ -22,6 +24,8 @@ type SpeakUpFormDataType = {
 };
 
 export const SpeakUpForm = ({ onSubmit, onImageURLChange }: SpeakUpFormProps) => {
+  const { userWallet } = useGlobalState();
+
   const [speakUpFormData, setSpeakUpFormData] = useState<SpeakUpFormDataType>({
     title: "",
     description: "",
@@ -32,14 +36,29 @@ export const SpeakUpForm = ({ onSubmit, onImageURLChange }: SpeakUpFormProps) =>
   });
 
   const submitForm = () => {
+    if (!userWallet) {
+      notification.error("Please sign in with your wallet.");
+      return;
+    }
+
+    if (
+      speakUpFormData.title === "" ||
+      speakUpFormData.description === "" ||
+      speakUpFormData.location === "" ||
+      speakUpFormData.imageURL === ""
+    ) {
+      notification.error("Please fill out all fields.");
+      return;
+    }
+
     onSubmit(speakUpFormData);
     setSpeakUpFormData({
-        title: "",
-        description: "",
-        location: "",
-        imageURL: "",
-        relatedPosts: "",
-        tag: ""
+      title: "",
+      description: "",
+      location: "",
+      imageURL: "",
+      relatedPosts: "",
+      tag: "",
     });
   };
 

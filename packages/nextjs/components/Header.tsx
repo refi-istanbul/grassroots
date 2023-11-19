@@ -6,6 +6,7 @@ import { NextIdSignin } from "./grassroots/NextIdSignin";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { useGlobalState } from "~~/services/store/store";
 
 interface HeaderMenuLink {
   label: string;
@@ -58,6 +59,7 @@ export const HeaderMenuLinks = () => {
  * Site header
  */
 export const Header = () => {
+  const { userWallet } = useGlobalState();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(
@@ -91,15 +93,16 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-7 mr-6 shrink-0">
-          <Image alt="logo" className="cursor-pointer" width={30} height={30} src="/logo.svg" />
-          <div className="font-extrabold text-2xl leading-tight">Grassroots</div>
+          {/* <Image alt="logo" className="cursor-pointer" width={30} height={30} src="/logo.svg" />
+          <div className="font-extrabold text-2xl leading-tight">Grassroots</div> */}
+          <Image alt="logo" className="cursor-pointer" width={250} height={80} src="/logo_glasses.svg" />
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-4 ml-8">
           <HeaderMenuLinks />
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
-        <NextIdSignin />
+        {userWallet && <NextIdSignin />}
         <RainbowKitCustomConnectButton />
       </div>
     </div>
