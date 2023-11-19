@@ -7,6 +7,7 @@ import { Like } from "~~/services/waku/proto/like";
 import { Root } from "~~/services/waku/proto/root";
 import { RootItem } from "~~/types/grassroots/root";
 import { notification } from "~~/utils/scaffold-eth";
+import { toast } from 'react-toastify';
 
 const Feed: NextPage = () => {
   const [wakuGlobalContext, setWakuGlobalContext] = useState<WakuContext>();
@@ -15,6 +16,12 @@ const Feed: NextPage = () => {
   async function onMessageReceived(message: Partial<RootItem>) {
     console.info("onMessageReceived", message);
     // TODO: Calculate the like for the roots by pulling the like topic messages
+
+    // check if it's duplicate message
+    const checkDuplicate = rootsList.filter(root => root.id === message.id);
+    if(checkDuplicate[0]){
+      return await fetchLikeForATopic(checkDuplicate[0].id);
+    }
 
     const { dislikes, likes } = await fetchLikeForATopic(message.id!);
 
@@ -70,6 +77,8 @@ const Feed: NextPage = () => {
     };
 
     await createLike(wakuGlobalContext!.node, wakuGlobalContext!.likeEncoderDecoder.encoder, rootLink);
+    toast("Done!");
+    await updateLikeRecordOfNewsTopic(rootId);
   }
 
   async function onDisLike(rootId: string) {
@@ -81,7 +90,23 @@ const Feed: NextPage = () => {
       userSignature: `userWallet-${rootId}`,
     };
     await createLike(wakuGlobalContext!.node, wakuGlobalContext!.likeEncoderDecoder.encoder, rootLink);
+    toast("Done!");
+    await updateLikeRecordOfNewsTopic(rootId);
   }
+
+
+  const updateLikeRecordOfNewsTopic = async (topicId: string) => {
+    const recentStat = await fetchLikeForATopic(topicId);
+
+    const newRootsList = rootsList.map((root) => {
+      if (root.id === topicId) {
+        return {...root, likes: recentStat.likes, disLikes: recentStat.dislikes};
+      }
+      return root;
+    });
+
+    setRoots(newRootsList);
+  };
 
   useEffect(() => {
     (async () => {
@@ -101,7 +126,6 @@ const Feed: NextPage = () => {
       await wakuGlobalContext?.node.store.queryWithOrderedCallback(
         [wakuGlobalContext.rootEncoderDecoder.decoder],
         wakuMessage => {
-          console.info("wakuMessageDecoded", wakuMessage);
           const wakuMessageDecoded = Root.decode(wakuMessage.payload);
           onMessageReceived(wakuMessageDecoded as unknown as Partial<RootItem>);
         },

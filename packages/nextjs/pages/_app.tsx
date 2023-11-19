@@ -13,6 +13,13 @@ import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import { appChains } from "~~/services/web3/wagmiConnectors";
 import "~~/styles/globals.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
