@@ -54,19 +54,13 @@ const Home: NextPage = () => {
             <div className="flex flex-col gap-10 w-2/5">
               <div className="flex flex-col">
                 <div className="text-2xl">mint now</div>
-                <div className="text-4xl mt-0">Proof of Verification</div>
+                <div className="text-4xl mt-0">Our mission</div>
               </div>
               <div className="text-xl">
-                Refound's mission is part of the Regenerative Finance (ReFi) movement, specifically to leverage
-                blockchain to help journalists and photographers directly sell their content to the public and news
-                media at higher margins and with greater financial control, helping regenerate their economic cycle.
+                Using Grassroots whistleblowers reporting concealed climate related risks can share their reports and case studies safely and anonymously.  They can connect to their communities to share the personal and community impact of climate change and climate crimes and the community can participate in voting on and speaking up about the whistle blower claims. As we build further, users will be able to raise funding for investigations and for relief in a solution oriented approach to mitigate these climate risks before they advance.
               </div>
             </div>
             <Image src="/map.png" width={700} height={400} alt="" />
-          </div>
-          <div className="w-1/3 text-md">
-            Our decentralized application provides journalists a platform to share their content, monetize it, and
-            maintain anonymity and safety by using a wallet sign-in.
           </div>
         </div>
       </div>
