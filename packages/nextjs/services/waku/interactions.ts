@@ -26,10 +26,6 @@ export async function createRoot(node: LightNode, encoder: Encoder, params: Crea
     ...params,
   } as Partial<Root>;
 
-  // TODO: Remove after testing is done
-  console.log("New root:", newRoot);
-  console.log("Encoded:", Root.encode(newRoot));
-
   await node.lightPush.send(encoder, {
     payload: Root.encode(newRoot),
   });

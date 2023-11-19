@@ -32,7 +32,15 @@ export const SpeakUpForm = ({ onSubmit, onImageURLChange }: SpeakUpFormProps) =>
   });
 
   const submitForm = () => {
-    return onSubmit(speakUpFormData);
+    onSubmit(speakUpFormData);
+    setSpeakUpFormData({
+        title: "",
+        description: "",
+        location: "",
+        imageURL: "",
+        relatedPosts: "",
+        tag: ""
+    });
   };
 
   // ------ Updates ----------
