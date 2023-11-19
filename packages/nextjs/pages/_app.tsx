@@ -19,11 +19,6 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-});
-
 const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   // This variable is required for initial client side rendering of correct theme for RainbowKit
   const [isDarkTheme, setIsDarkTheme] = useState(true);
