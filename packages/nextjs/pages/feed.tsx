@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import type {NextPage} from "next";
 import {RootComponent} from "~~/components/grassroots/RootComponent";
+import {RootComponentHard} from "~~/components/grassroots/RootComponentHard";
+import {RootComponentHard2} from "~~/components/grassroots/RootComponentHard2";
 import {useGlobalState} from "~~/services/store/store";
 import {WakuContext, initWakuContext} from "~~/services/waku/context";
 import {createLike} from "~~/services/waku/interactions";
@@ -176,6 +178,13 @@ const Feed: NextPage = () => {
     return (
         <>
             <div className="flex items-center flex-col flex-grow pt-10 gap-5">
+
+            <RootComponentHard
+                        />
+
+            <RootComponentHard2
+                        />
+                        
                 {rootsList.map(root => {
                     return (
                         <RootComponent
